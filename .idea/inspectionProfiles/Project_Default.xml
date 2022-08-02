@@ -1,0 +1,75 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="23">
+            <item index="0" class="java.lang.String" itemvalue="parselmouth" />
+            <item index="1" class="java.lang.String" itemvalue="torchvision" />
+            <item index="2" class="java.lang.String" itemvalue="opencv-python-headless" />
+            <item index="3" class="java.lang.String" itemvalue="pyannote-audio" />
+            <item index="4" class="java.lang.String" itemvalue="pyannote" />
+            <item index="5" class="java.lang.String" itemvalue="scipy" />
+            <item index="6" class="java.lang.String" itemvalue="nemo_toolkit" />
+            <item index="7" class="java.lang.String" itemvalue="scikit-learn" />
+            <item index="8" class="java.lang.String" itemvalue="scikit_learn" />
+            <item index="9" class="java.lang.String" itemvalue="aiogram" />
+            <item index="10" class="java.lang.String" itemvalue="wget" />
+            <item index="11" class="java.lang.String" itemvalue="sklearn" />
+            <item index="12" class="java.lang.String" itemvalue="nemo" />
+            <item index="13" class="java.lang.String" itemvalue="pydub" />
+            <item index="14" class="java.lang.String" itemvalue="numpy" />
+            <item index="15" class="java.lang.String" itemvalue="omegaconf" />
+            <item index="16" class="java.lang.String" itemvalue="pandas" />
+            <item index="17" class="java.lang.String" itemvalue="importlib" />
+            <item index="18" class="java.lang.String" itemvalue="spacy" />
+            <item index="19" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="20" class="java.lang.String" itemvalue="librosa" />
+            <item index="21" class="java.lang.String" itemvalue="xgboost" />
+            <item index="22" class="java.lang.String" itemvalue="torchaudio" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E722" />
+          <option value="E402" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="parselmouth" />
+          <option value="tuple.mean" />
+          <option value="tuple.variance" />
+          <option value="tuple.minmax" />
+          <option value="tuple.kurtosis" />
+          <option value="tuple.skewness" />
+          <option value="list.__getitem__" />
+          <option value="numpy.core._multiarray_umath.ndarray.A" />
+          <option value="cv2.remap" />
+          <option value="cv2.INTER_LINEAR" />
+          <option value="cv2.initUndistortRectifyMap" />
+          <option value="cv2.getOptimalNewCameraMatrix" />
+          <option value="cv2.resize" />
+          <option value="modules.data_generator.svgs2ttf.fontforge" />
+          <option value="modules.data_generator.ttf2pngs.fontforge" />
+          <option value="os.sys" />
+          <option value="typing.TextIO.__getitem__" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
