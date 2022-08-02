@@ -1,4 +1,4 @@
-nemo_toolkit==1.11.0rc0
+nemo_toolkit>=1.9.0
 omegaconf==2.1.2
 pyannote.pipeline==2.3
 pydub==0.25.1
