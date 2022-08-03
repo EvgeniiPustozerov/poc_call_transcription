@@ -31,7 +31,6 @@ psutil
 ijson
 spacy
 torchaudio
-pyannote
 pyannote.metrics
 pyannote.audio
 pyannote.pipeline
