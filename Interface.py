@@ -1,12 +1,16 @@
 import glob
 import random
+import subprocess
 from subprocess import STDOUT, check_call
 import os
 from sys import platform
 
 # Prerequisites for the streamlit server
 if platform == "linux" or platform == "linux2":
-    check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
+    print("Installing additional sound packages for Linux")
+    # check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
+    subprocess.Popen('sudo apt-get install libsndfile1', shell=True, stdin=subprocess.PIPE).communicate('y\n')
+
 
 import soundfile as sf
 import streamlit as st
