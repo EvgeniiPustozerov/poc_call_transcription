@@ -10,6 +10,8 @@ if platform == "linux" or platform == "linux2":
     print("Installing additional sound packages for Linux")
     # check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
     subprocess.Popen('sudo apt-get install libsndfile1-dev', shell=True, stdin=subprocess.PIPE).communicate()
+    subprocess.Popen('sudo apt-get install libsndfile-dev', shell=True, stdin=subprocess.PIPE).communicate()
+    subprocess.Popen('sudo apt-get install libsndfile1', shell=True, stdin=subprocess.PIPE).communicate()
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'SoundFile'])
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pydub'])
 
