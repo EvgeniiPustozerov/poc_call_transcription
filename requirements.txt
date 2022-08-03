@@ -33,3 +33,4 @@ ijson
 spacy
 torchaudio
 pyannote.metrics
+pyannote.audio
