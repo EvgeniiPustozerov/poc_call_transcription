@@ -11,3 +11,4 @@ braceexpand
 webdataset
 librosa
 inflect
+transformers
