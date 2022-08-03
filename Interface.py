@@ -4,6 +4,10 @@ from subprocess import STDOUT, check_call
 import os
 from sys import platform
 
+# Prerequisites for the streamlit server
+if platform == "linux" or platform == "linux2":
+    check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
+
 import soundfile as sf
 import streamlit as st
 from pydub import AudioSegment
@@ -11,10 +15,7 @@ from pydub import AudioSegment
 from modules.diarization.nemo_diarization import diarization
 
 
-# Prerequisites for the streamlit server
 
-if platform == "linux" or platform == "linux2":
-    check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
 
 st.title('Call Transcription demo')
 st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
