@@ -7,3 +7,4 @@ pydub==0.25.1
 SoundFile==0.10.3.post1
 streamlit==1.10.0
 hydra-core
+braceexpand
