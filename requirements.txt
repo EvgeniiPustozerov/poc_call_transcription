@@ -15,7 +15,6 @@ transformers
 sentencepiece
 Cython
 youtokentome
-pyannote.data
 IPython
 editdistance
 h5py
