@@ -34,3 +34,4 @@ torchaudio
 pyannote.metrics
 pyannote.audio
 pyannote.pipeline
+pyannote.core
