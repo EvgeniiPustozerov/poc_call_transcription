@@ -8,12 +8,15 @@ from sys import platform
 # Prerequisites for the streamlit server
 if platform == "linux" or platform == "linux2":
     print("Installing additional sound packages for Linux")
-    # check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
+    subprocess.check_call(['sudo', 'apt-get', 'install', '-y', 'libsndfile1'])
+    subprocess.check_call(['sudo', 'apt-get', 'install', '-y', 'libsndfile-dev'])
+    subprocess.check_call(['sudo', 'apt-get', 'install', '-y', 'libsndfile1-dev'])
     subprocess.Popen('sudo apt-get install libsndfile1-dev', shell=True, stdin=subprocess.PIPE).communicate()
     subprocess.Popen('sudo apt-get install libsndfile-dev', shell=True, stdin=subprocess.PIPE).communicate()
     subprocess.Popen('sudo apt-get install libsndfile1', shell=True, stdin=subprocess.PIPE).communicate()
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'SoundFile'])
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pydub'])
+
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--upgrade', '--force-reinstall', 'SoundFile'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--upgrade', '--force-reinstall', 'pydub'])
 
 import soundfile as sf
 import streamlit as st
