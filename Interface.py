@@ -1,7 +1,7 @@
 import glob
 import random
 import subprocess
-from subprocess import STDOUT, check_call
+import sys
 import os
 from sys import platform
 
@@ -9,17 +9,13 @@ from sys import platform
 if platform == "linux" or platform == "linux2":
     print("Installing additional sound packages for Linux")
     # check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
-    subprocess.Popen('sudo apt-get install libsndfile1', shell=True, stdin=subprocess.PIPE).communicate()
-
+    subprocess.Popen('sudo apt-get install libsndfile1-dev', shell=True, stdin=subprocess.PIPE).communicate()
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'SoundFile'])
 
 import soundfile as sf
 import streamlit as st
 from pydub import AudioSegment
-
 from modules.diarization.nemo_diarization import diarization
-
-
-
 
 st.title('Call Transcription demo')
 st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
