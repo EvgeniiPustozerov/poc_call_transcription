@@ -10,3 +10,4 @@ hydra-core
 braceexpand
 webdataset
 librosa
+inflect
