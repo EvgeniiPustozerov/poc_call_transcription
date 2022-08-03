@@ -8,9 +8,9 @@ from sys import platform
 # Prerequisites for the streamlit server
 if platform == "linux" or platform == "linux2":
     print("Installing additional sound packages for Linux")
-    subprocess.check_call(['apt-get', 'install', '-y', 'libsndfile1'])
-    subprocess.check_call(['apt-get', 'install', '-y', 'libsndfile-dev'])
-    subprocess.check_call(['apt-get', 'install', '-y', 'libsndfile1-dev'])
+    subprocess.check_call(['apt-get', 'install', '-y', 'libsndfile1'], shell=True)
+    subprocess.check_call(['apt-get', 'install', '-y', 'libsndfile-dev'], shell=True)
+    subprocess.check_call(['apt-get', 'install', '-y', 'libsndfile1-dev'], shell=True)
     subprocess.Popen('sudo apt-get install libsndfile1-dev', shell=True, stdin=subprocess.PIPE).communicate()
     subprocess.Popen('sudo apt-get install libsndfile-dev', shell=True, stdin=subprocess.PIPE).communicate()
     subprocess.Popen('sudo apt-get install libsndfile1', shell=True, stdin=subprocess.PIPE).communicate()
