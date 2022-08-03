@@ -9,7 +9,7 @@ from sys import platform
 if platform == "linux" or platform == "linux2":
     print("Installing additional sound packages for Linux")
     # check_call(['apt-get', 'install', '-y', 'libsndfile1'], stdout=open(os.devnull, 'wb'), stderr=STDOUT)
-    subprocess.Popen('sudo apt-get install libsndfile1', shell=True, stdin=subprocess.PIPE).communicate('y\n')
+    subprocess.Popen('sudo apt-get install libsndfile1', shell=True, stdin=subprocess.PIPE).communicate()
 
 
 import soundfile as sf
