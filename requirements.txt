@@ -31,7 +31,4 @@ psutil
 ijson
 spacy
 torchaudio
-pyannote.metrics
-pyannote.audio
-pyannote.pipeline
-pyannote.core
+https://github.com/pyannote/pyannote-audio
