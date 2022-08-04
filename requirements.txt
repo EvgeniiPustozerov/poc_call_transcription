@@ -31,6 +31,7 @@ pyctcdecode
 psutil
 ijson
 spacy
+speechbrain
 torchaudio==0.12.0
 pyannote.audio @ https://github.com/pyannote/pyannote-audio/archive/develop.zip
 pyannote.core==4.4
