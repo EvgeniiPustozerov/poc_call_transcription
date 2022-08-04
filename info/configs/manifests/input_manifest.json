@@ -1,10 +1,1 @@
-{
-  "audio_filepath": "data/user_data/interview.mp3",
-  "offset": 0,
-  "duration": null,
-  "label": "infer",
-  "text": "-",
-  "num_speakers": 2,
-  "rttm_filepath": null,
-  "uem_filepath": null
-}
+{"audio_filepath": "data/datasets/crema_d_diarization_chunks\\50.wav", "offset": 0, "duration": null, "label": "infer", "text": "-", "num_speakers": 2, "rttm_filepath": null, "uem_filepath": null}

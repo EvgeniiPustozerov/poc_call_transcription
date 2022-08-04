@@ -1,11 +1,11 @@
-protobuf<3.20
-nemo_toolkit>=1.9.0
-pytorch_lightning
+protobuf==3.19.4
+nemo-toolkit @ git+https://github.com/NVIDIA/NeMo.git@6442e339a47d30a106d869d1ef29cc1294753b75
+pytorch-lightning==1.6.5
 omegaconf==2.1.2
 pydub==0.25.1
 SoundFile==0.10.3.post1
-streamlit==1.10.0
-hydra-core
+streamlit
+hydra-core==1.1.2
 braceexpand
 webdataset
 librosa
@@ -30,7 +30,7 @@ pyctcdecode
 psutil
 ijson
 spacy
-torchaudio
+torchaudio==0.12.0
 pyannote.audio @ https://github.com/pyannote/pyannote-audio/archive/develop.zip
 pyannote.core==4.4
 pyannote.database==4.1.3
