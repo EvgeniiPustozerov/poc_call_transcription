@@ -1,6 +1,7 @@
+nemo-toolkit @ git+https://github.com/NVIDIA/NeMo.git@6442e339a47d30a106d869d1ef29cc1294753b75
+Cython==0.29.30
 torch
 protobuf==3.19.4
-nemo-toolkit @ git+https://github.com/NVIDIA/NeMo.git@6442e339a47d30a106d869d1ef29cc1294753b75
 pytorch-lightning==1.6.5
 omegaconf==2.1.2
 pydub==0.25.1
@@ -13,7 +14,6 @@ librosa
 inflect
 transformers
 sentencepiece
-Cython==0.29.30
 youtokentome
 IPython
 editdistance
