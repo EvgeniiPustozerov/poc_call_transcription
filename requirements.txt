@@ -38,4 +38,3 @@ torch==1.12.0
 torchaudio==0.12.0
 transformers==4.20.0
 webdataset==0.1.62
-youtokentome @ git+https://github.com/VKCOM/YouTokenToMe

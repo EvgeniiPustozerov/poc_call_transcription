@@ -1,3 +1,6 @@
+import os
+os.system("pip install youtokentome @ git+https://github.com/VKCOM/YouTokenToMe")
+
 import glob
 import random
 import os
@@ -11,6 +14,7 @@ st.title('Call Transcription demo')
 st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
              'automatic speech recognition and diarization. It works with mp3, ogg and wav files. You can randomly '
              'pickup a set of images from the built-in database or try uploading your own files.')
+
 
 if st.button('Try random samples from the database'):
     folder = "data/datasets/crema_d_diarization_chunks"
