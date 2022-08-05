@@ -45,7 +45,12 @@ if uploaded_file is not None:
     for f in glob.glob(folder + '*'):
         os.remove(f)
     save_path = folder + uploaded_file.name
-    sound = AudioSegment.from_mp3(uploaded_file)
+    if ".mp3" in uploaded_file:
+        sound = AudioSegment.from_mp3(uploaded_file)
+    elif ".ogg" in uploaded_file:
+        sound = AudioSegment.from_ogg(uploaded_file)
+    else:
+        sound = AudioSegment.from_wav(uploaded_file)
     sound.export(save_path, format="wav", parameters=["-ac", "1"])
     file_name = os.path.basename(save_path).split(".")[0]
     audio_file = open(save_path, 'rb')

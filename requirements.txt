@@ -1,5 +1,5 @@
 braceexpand==0.1.7
-Cython==0.29.32
+Cython @ git+https://github.com/cython/cython
 editdistance==0.6.0
 einops==0.3.2
 h5py==3.7.0
