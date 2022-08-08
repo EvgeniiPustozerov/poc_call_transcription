@@ -1,5 +1,5 @@
 import os
-os.system("pip install youtokentome @ git+https://github.com/VKCOM/YouTokenToMe")
+os.system("pip install youtokentome")
 
 import glob
 import random
