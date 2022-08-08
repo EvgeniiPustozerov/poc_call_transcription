@@ -1,6 +1,3 @@
-import os
-os.system("pip install youtokentome")
-
 import glob
 import random
 import os
