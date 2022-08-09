@@ -1,3 +1,4 @@
+astroid
 braceexpand==0.1.7
 editdistance==0.6.0
 einops==0.3.2
