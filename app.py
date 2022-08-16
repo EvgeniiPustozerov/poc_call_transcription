@@ -49,9 +49,10 @@ uploaded_file = st.file_uploader("Choose your recording with a speech",
                                  accept_multiple_files=False, type=["mp3", "wav", "ogg"])
 if uploaded_file is not None:
     os.makedirs(FOLDER_USER_DATA, exist_ok=True)
-    if ".mp3" in uploaded_file:
+    print(uploaded_file)
+    if ".mp3" in uploaded_file.name:
         sound = AudioSegment.from_mp3(uploaded_file)
-    elif ".ogg" in uploaded_file:
+    elif ".ogg" in uploaded_file.name:
         sound = AudioSegment.from_ogg(uploaded_file)
     else:
         sound = AudioSegment.from_wav(uploaded_file)
