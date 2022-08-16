@@ -11,7 +11,8 @@ from scipy.io.wavfile import write
 from modules.diarization.nemo_diarization import diarization
 
 FOLDER_WAV_DB = "data/database/"
-FOLDER_WAV_USER = "data/user_data/"
+FOLDER_USER_DATA = "data/user_data/"
+FOLDER_USER_DATA_WAV = "data/user_data_wav/"
 SAMPLE_RATE = 16000
 dataset = load_dataset("pustozerov/crema_d_diarization", split='validation')
 
@@ -47,16 +48,15 @@ if st.button('Try a random sample from the database'):
 uploaded_file = st.file_uploader("Choose your recording with a speech",
                                  accept_multiple_files=False, type=["mp3", "wav", "ogg"])
 if uploaded_file is not None:
-    os.makedirs(FOLDER_WAV_USER, exist_ok=True)
-    for f in glob.glob(FOLDER_WAV_USER + '*'):
-        os.remove(f)
-    save_path = FOLDER_WAV_USER + uploaded_file.name
+    os.makedirs(FOLDER_USER_DATA, exist_ok=True)
     if ".mp3" in uploaded_file:
         sound = AudioSegment.from_mp3(uploaded_file)
     elif ".ogg" in uploaded_file:
         sound = AudioSegment.from_ogg(uploaded_file)
     else:
         sound = AudioSegment.from_wav(uploaded_file)
+    save_path = FOLDER_USER_DATA_WAV + uploaded_file.name
+    os.makedirs(FOLDER_USER_DATA_WAV, exist_ok=True)
     sound.export(save_path, format="wav", parameters=["-ac", "1"])
     file_name = os.path.basename(save_path).split(".")[0]
     audio_file = open(save_path, 'rb')
