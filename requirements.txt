@@ -33,10 +33,12 @@ sentencepiece==0.1.96
 SoundFile==0.10.3.post1
 spacy==3.4.0
 speechbrain @ git+https://github.com/speechbrain/speechbrain.git
-streamlit==1.10.0
+streamlit~=1.11.1
 torch==1.12.0
 torchaudio==0.12.0
 transformers==4.20.0
 webdataset==0.1.62
 Cython==0.29.14
 youtokentome
+datasets~=2.4.0
+NEMO~=4.1.1

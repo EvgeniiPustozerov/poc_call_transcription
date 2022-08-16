@@ -1,30 +1,35 @@
 import glob
 import random
 import os
+import numpy as np
 import soundfile as sf
 import streamlit as st
 from pydub import AudioSegment
+from datasets import load_dataset
+from scipy.io.wavfile import write
 
 from modules.diarization.nemo_diarization import diarization
+
+FOLDER_WAV = "data/user_data"
+SAMPLE_RATE = 16000
+dataset = load_dataset("pustozerov/crema_d_diarization", split='validation')
 
 st.title('Call Transcription demo')
 st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
              'automatic speech recognition and diarization. It works with mp3, ogg and wav files. You can randomly '
              'pickup a set of images from the built-in database or try uploading your own files.')
+if st.button('Try a random sample from the database'):
 
-
-if st.button('Try random samples from the database'):
-    folder = "data/datasets/crema_d_diarization_chunks"
-    os.makedirs(folder, exist_ok=True)
-    list_all_audio = glob.glob("data/datasets/crema_d_diarization_chunks/*.wav")
-    chosen_files = sorted(random.sample(list_all_audio, 1))
-    file_name = os.path.basename(chosen_files[0]).split(".")[0]
-    audio_file = open(chosen_files[0], 'rb')
-    audio_bytes = audio_file.read()
-    st.audio(audio_bytes)
-    f = sf.SoundFile(chosen_files[0])
+    shuffled_dataset = dataset.shuffle(seed=random.randint(0, 100))
+    file_name = str(shuffled_dataset["file"][0]).split(".")[0]
+    audio_bytes = np.array(shuffled_dataset["data"][0])
+    audio_bytes_scaled = np.int16(audio_bytes / np.max(np.abs(audio_bytes)) * 32767)
+    write(os.path.join(FOLDER_WAV, file_name + '.wav'), rate=SAMPLE_RATE, data=audio_bytes_scaled)
+    f = sf.SoundFile(os.path.join(FOLDER_WAV, file_name + '.wav'))
+    audio_file = open(os.path.join(FOLDER_WAV, file_name + '.wav'), 'rb')
+    st.audio(audio_file.read())
     st.write("Starting transcription. Estimated processing time: %0.1f seconds" % (f.frames / (f.samplerate * 5)))
-    result = diarization(chosen_files[0])
+    result = diarization(os.path.join(FOLDER_WAV, file_name + '.wav'))
     with open("info/transcripts/pred_rttms/" + file_name + ".txt") as f:
         transcript = f.read()
     st.write("Transcription completed.")
