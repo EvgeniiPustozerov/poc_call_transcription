@@ -9,6 +9,7 @@ from scipy.io.wavfile import write
 
 from modules.diarization.nemo_diarization import diarization
 from modules.nlp.nemo_ner import detect_ner
+from modules.nlp.nemo_punct_cap import punctuation_capitalization
 
 FOLDER_WAV_DB = "data/database/"
 FOLDER_USER_DATA = "data/user_data/"
@@ -19,7 +20,7 @@ dataset = load_dataset("pustozerov/crema_d_diarization", split='validation')
 st.title('Call Transcription demo')
 st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
              'automatic speech recognition and diarization. It works with mp3, ogg and wav files. You can randomly '
-             'pickup a set of images from the built-in database or try uploading your own files.')
+             'pickup an audio file with the dialogue from the built-in database or try uploading your own files.')
 if st.button('Try a random sample from the database'):
     os.makedirs(FOLDER_WAV_DB, exist_ok=True)
     shuffled_dataset = dataset.shuffle(seed=random.randint(0, 100))
@@ -32,13 +33,15 @@ if st.button('Try a random sample from the database'):
     st.audio(audio_file.read())
     st.write("Starting transcription. Estimated processing time: %0.1f seconds" % (f.frames / (f.samplerate * 5)))
     result = diarization(os.path.join(FOLDER_WAV_DB, file_name + '.wav'))
+    with open("info/transcripts/pred_rttms/" + file_name + ".txt") as f:
+        transcript = f.read()
+    st.write("Transcription completed. Starting assigning punctuation and capitalization.")
     sentences = result[file_name]["sentences"]
     all_strings = ""
     for sentence in sentences:
         all_strings = all_strings + sentence["sentence"] + "\n"
-    with open("info/transcripts/pred_rttms/" + file_name + ".txt") as f:
-        transcript = f.read()
-    st.write("Transcription completed. Starting named entity recognition.")
+    all_strings = punctuation_capitalization([all_strings])[0]
+    st.write("Punctuation and capitalization are ready. Starting named entity recognition.")
     tagged_string, tags_summary = detect_ner(all_strings)
     transcript = transcript + '\n' + tagged_string
     st.write("Number of speakers: %s" % result[file_name]["speaker_count"])
