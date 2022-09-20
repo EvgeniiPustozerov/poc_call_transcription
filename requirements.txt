@@ -26,6 +26,7 @@ pyannote.metrics==3.2
 pyannote.pipeline==2.3
 pyctcdecode==0.3.0
 pydub==0.25.1
+pynini
 pytorch-lightning==1.6.5
 sacrebleu==2.1.0
 sacremoses==0.0.53
