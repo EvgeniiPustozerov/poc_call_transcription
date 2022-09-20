@@ -10,8 +10,7 @@ pretrained_ner_model = nemo_nlp.models.TokenClassificationModel.from_pretrained(
 
 
 def detect_ner(input_string):
-    results = pretrained_ner_model.add_predictions([input_string.replace('[', '').replace(']', '')])[0]
-    print(results)
-    tags = re.findall('\[.*?]', results)
-    output_string = "Found named entities: " + str(dict(Counter(tags)))[1:-1]
-    return output_string
+    tagged_string = pretrained_ner_model.add_predictions([input_string.replace('[', '').replace(']', '')])[0]
+    tags = re.findall('\[.*?]', tagged_string)
+    tags_summary = "Found named entities: " + str(dict(Counter(tags)))[1:-1]
+    return tagged_string, tags_summary
