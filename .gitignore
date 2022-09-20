@@ -2,3 +2,5 @@
 /data/database/
 /info/configs/manifests/
 /info/transcripts/
+/data/user_data/
+/data/user_data_wav/
