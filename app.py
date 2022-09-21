@@ -18,6 +18,7 @@ FOLDER_MANIFESTS = "info/configs/manifests/"
 SAMPLE_RATE = 16000
 dataset = load_dataset("pustozerov/crema_d_diarization", split='validation')
 os.makedirs(FOLDER_WAV_DB, exist_ok=True)
+os.makedirs(FOLDER_MANIFESTS, exist_ok=True)
 
 st.title('Call Transcription demo')
 st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
