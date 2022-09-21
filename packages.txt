@@ -7,3 +7,5 @@ unzip
 libc6
 libsm6
 libxext6
+libxcb-xinerama0
+wget
