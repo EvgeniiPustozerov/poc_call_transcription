@@ -14,8 +14,10 @@ from modules.nlp.nemo_punct_cap import punctuation_capitalization
 FOLDER_WAV_DB = "data/database/"
 FOLDER_USER_DATA = "data/user_data/"
 FOLDER_USER_DATA_WAV = "data/user_data_wav/"
+FOLDER_MANIFESTS = "info/configs/manifests/"
 SAMPLE_RATE = 16000
 dataset = load_dataset("pustozerov/crema_d_diarization", split='validation')
+os.makedirs(FOLDER_WAV_DB, exist_ok=True)
 
 st.title('Call Transcription demo')
 st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
@@ -79,10 +81,19 @@ if uploaded_file is not None:
     result = diarization(save_path)
     with open("info/transcripts/pred_rttms/" + file_name + ".txt") as f:
         transcript = f.read()
-    st.write("Transcription completed.")
+    st.write("Transcription completed. Starting assigning punctuation and capitalization.")
+    sentences = result[file_name]["sentences"]
+    all_strings = ""
+    for sentence in sentences:
+        all_strings = all_strings + sentence["sentence"] + "\n"
+    all_strings = punctuation_capitalization([all_strings])[0]
+    st.write("Punctuation and capitalization are ready. Starting named entity recognition.")
+    tagged_string, tags_summary = detect_ner(all_strings)
+    transcript = transcript + '\n' + tagged_string
     st.write("Number of speakers: %s" % result[file_name]["speaker_count"])
     st.write("Sentences: %s" % len(result[file_name]["sentences"]))
     st.write("Words: %s" % len(result[file_name]["words"]))
+    st.write("Found named entities: %s" % tags_summary)
     st.download_button(
         label="Download audio transcript",
         data=transcript,

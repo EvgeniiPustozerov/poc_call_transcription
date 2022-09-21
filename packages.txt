@@ -7,8 +7,3 @@ unzip
 libc6
 libsm6
 libxext6
-libxcb-xinerama0
-wget
-libglfw3-dev
-libgles2-mesa-dev
-xvfb
