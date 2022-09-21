@@ -4,3 +4,4 @@ python3-pip
 python3-dev
 unzip
 libc6
+glibc
