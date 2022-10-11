@@ -21,9 +21,9 @@ os.makedirs(FOLDER_WAV_DB, exist_ok=True)
 os.makedirs(FOLDER_MANIFESTS, exist_ok=True)
 
 st.title('Call Transcription demo')
-st.subheader('This simple demo shows the possibilities of the ASR and NLP in the task of '
-             'automatic speech recognition and diarization. It works with mp3, ogg and wav files. You can randomly '
-             'pickup an audio file with the dialogue from the built-in database or try uploading your own files.')
+st.write('This simple demo shows the possibilities of ASR and NLP in the task of automatic speech recognition and '
+         'diarization. It works with mp3, ogg, and wav files. You can randomly pick an audio file with the dialogue '
+         'from the built-in database or try uploading your files.')
 st.write('Note: this demo shows up a reduced-performance model. To get a full-performance neural network or develop a '
          'system adapted to your task – contact kirill.lozovoi@exposit.com.')
 if st.button('Try a random sample from the database'):
